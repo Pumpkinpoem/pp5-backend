@@ -16,10 +16,10 @@ import os
 if os.path.exists('env.py'):
     import env
 
-cloudinary_storage = {
+CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
-Media_URL = '/media/'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-k$1&ah^p_szg#j60ixviwvy)1g5g^pd61b&10k4f_6-*b2s_q*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+
+
+    'profiles',
 ]
 
 MIDDLEWARE = [
