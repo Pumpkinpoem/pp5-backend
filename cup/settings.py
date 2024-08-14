@@ -29,12 +29,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k$1&ah^p_szg#j60ixviwvy)1g5g^pd61b&10k4f_6-*b2s_q*'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = ['https://8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net']
+
 
 
 # Application definition
