@@ -62,7 +62,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 '8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net',
-'cup-backend.herokuapp.com']
+'cup-backend-3976f813200f.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = [
 'https://8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net'
 ]
