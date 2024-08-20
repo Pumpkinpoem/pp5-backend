@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import re
 
 if os.path.exists('env.py'):
     import env
@@ -61,8 +62,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net',
-'cup-backend-3976f813200f.herokuapp.com']
+   os.environ.get('ALLOWED_HOST'),
+   '8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net',
+]
 CSRF_TRUSTED_ORIGINS = [
 'https://8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net'
 ]
@@ -112,10 +114,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-     CORS_ALLOWED_ORIGINS = [
-         os.environ.get('CLIENT_ORIGIN')
-     ]
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''),
+    re.IGNORECASE).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+    ]
 else:
      CORS_ALLOWED_ORIGIN_REGEXES = [
          r"^https://.*\.gitpod\.io$",
