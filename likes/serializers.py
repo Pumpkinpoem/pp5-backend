@@ -15,6 +15,6 @@ class LikeSerializer(serializers.ModelSerializer):
         try:
             return super().create(validate_data)
         except IntegrityError:
-            raise serializers.validation({
-                'detail': 'possible duplicate'
+            raise serializers.ValidationError({
+                'detail': 'You have already liked this post.'
             })

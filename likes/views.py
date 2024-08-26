@@ -19,3 +19,7 @@ class LikeDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
+
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)

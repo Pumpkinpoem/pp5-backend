@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+def my_view(request):
+    queryset = Post.objects.annotate(
+        annotated_likes_count=Count('likes')
+    )
 
 class Post(models.Model):
     
