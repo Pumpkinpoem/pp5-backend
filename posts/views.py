@@ -9,13 +9,13 @@ from .serializers import PostSerializer
 class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    
- 
+
+    # Correct annotation using the new related_name
     queryset = Post.objects.all().annotate(
         likes_count=Count('likes', distinct=True),
-        calculated_comments_count=Count('comment', distinct=True)
+        comments_count=Count('comments', distinct=True)  # Use the related_name 'comments'
     ).order_by('-created_at')
-    
+
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -32,7 +32,7 @@ class PostList(generics.ListCreateAPIView):
     ]
     ordering_fields = [
         'likes_count',
-        'calculated_comments_count',
+        'comments_count',
         'likes__created_at',
     ]
 
@@ -40,10 +40,12 @@ class PostList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
+
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
     queryset = Post.objects.annotate(
         likes_count=Count('likes', distinct=True),
-        comments_count=Count('comment', distinct=True)
+        comments_count=Count('comments', distinct=True)  # Use the related_name 'comments'
     ).order_by('-created_at')
