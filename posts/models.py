@@ -53,6 +53,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
+    comments_count = models.IntegerField(default=0)
     image = models.ImageField(
         upload_to='images/', default='../default_post_penf1s', blank=True
     )
