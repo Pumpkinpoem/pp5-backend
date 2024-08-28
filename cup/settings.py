@@ -18,22 +18,53 @@ import re
 if os.path.exists('env.py'):
     import env
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Security settings
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG')
+
+ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
+    os.environ.get('DEV_BACKEND_URL'),
+    os.environ.get('PROD_BACKEND_URL'),  # Add production domain here
+]
+
+# Force https in production
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_TRUSTED_ORIGINS = [
+        f"https://{os.environ.get('DEV_BACKEND_URL')}",
+    f"https://{os.environ.get('PROD_BACKEND_URL')}",
+]
+
+# CORS settings
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        os.environ.get('CLIENT_ORIGIN_DEV', ''),
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
+
+# Cloudinary storage
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
+# REST framework settings
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [(
-        'rest_framework.authentication.SessionAuthentication'
-        if 'DEV' in os.environ
-        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
-    )],
-    'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication' if 'DEV' in os.environ else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DATETIME_FORMAT': '%d %b %Y',
 }
@@ -52,28 +83,7 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'cup.serializers.CurrentUserSerializer'
 }
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
-
-ALLOWED_HOSTS = [
-   os.environ.get('ALLOWED_HOST'),
-   '8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net',
-]
-
-CSRF_TRUSTED_ORIGINS = [
-'https://8000-pumpkinpoem-pp5backend-8x5au98s9un.ws.codeinstitute-ide.net'
-]
-
-
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -115,17 +125,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-     ]
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        os.environ.get('CLIENT_ORIGIN_DEV', ''),
-    ]
-
-CORS_ALLOW_CREDENTIALS = True
-
 ROOT_URLCONF = 'cup.urls'
 
 TEMPLATES = [
@@ -146,27 +145,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cup.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 if 'DEV' in os.environ:
-     DATABASES = {
-         'default': {
-             'ENGINE': 'django.db.backends.sqlite3',
-             'NAME': BASE_DIR / 'db.sqlite3',
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-    
-
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -182,27 +174,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
