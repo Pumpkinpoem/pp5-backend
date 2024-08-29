@@ -28,7 +28,7 @@ DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     os.environ.get('DEV_BACKEND_URL'),
-    os.environ.get('PROD_BACKEND_URL'),  # Add production domain here
+    os.environ.get('PROD_BACKEND_URL'),
 ]
 
 # Force https in production
