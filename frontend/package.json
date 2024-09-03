@@ -53,5 +53,6 @@
     "jest-esm-transformer": "^1.0.0",
     "msw": "^2.4.1",
     "util": "^0.12.5"
-  }
+  },
+  "proxy": "http://localhost:8000/"
 }
