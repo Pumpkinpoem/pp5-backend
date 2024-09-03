@@ -1,0 +1,81 @@
+.App {
+  font-family: "Noto Serif", sans-serif;
+  background-color: #cbdfbd; /* Light Moss Green for a calm background */
+  min-height: 100vh;
+}
+
+.Main {
+  padding-top: 81px;
+}
+
+.Content {
+  background-color: #cbdfbd; /* Light Moss Green for content background */
+  padding: 10px;
+  border-radius: 2px;
+  border: 2px solid #f6f4d2; /* Soft Buttercream for the border */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.FillerImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #a44a3f; /* Chestnut for link color */
+  transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:hover i {
+  color: #f19c79; /* Peachy Coral for icon hover color */
+  transition: color ease-in-out 0.3s;
+}
+
+i {
+  color: #f6f4d2; /* Soft Buttercream for icon color */
+  font-size: 1.6rem;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #f19c79; /* Peachy Cora for hover */
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+  background: #a44a3f; /* Chestnut for scrollbar thumb */
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #f19c79; /* Peachy Cora on hover */
+}

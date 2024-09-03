@@ -1,0 +1,69 @@
+.Button {
+  font-size: 0.8rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+  box-shadow: 
+rgba(0, 0, 0, 0.25) 0px 54px 55px,
+rgba(0, 0, 0, 0.12) 0px -12px 30px,
+rgba(0, 0, 0, 0.12) 0px 4px 6px,
+rgba(0, 0, 0, 0.17) 0px 12px 13px,
+rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.Button:hover:active {
+  background-color: #F19C79 !important; /* Atomic Tangerine */
+}
+
+.Button:active {
+  background-color: #F19C79 !important; /* Atomic Tangerine */
+}
+
+.Button:focus {
+  background-color: #F19C79; /* Atomic Tangerine */
+}
+
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
+
+.Pink,
+.PinkOutline:hover,
+.Bright:hover {
+  background-color: #F19C79; /* Atomic Tangerine */
+  color: #ffffff;
+}
+
+.PinkOutline,
+.Pink:hover {
+  background-color: #ffffff;
+  color: #F19C79; /* Atomic Tangerine */
+}
+
+.Black,
+.BlackOutline:hover {
+  background-color: #A44A3F; /* Chestnut */
+  color: #F6F4D2; /* Light Yellow */
+}
+
+.Black:hover,
+.BlackOutline {
+  background-color: #F6F4D2; /* Light Yellow */
+  color: #A44A3F; /* Chestnut */
+}
+
+.Bright {
+  background-color: #CBDFBD; /* Tea Green */
+  color: #A44A3F; /* Chestnut */
+}

@@ -1,0 +1,21 @@
+.SearchBar input {
+  border-radius: 20px;
+  color: #a44a3f; /* Chestnut for input text */
+  padding-left: 40px;
+  margin-bottom: 16px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.SearchIcon {
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 9px;
+  padding-left: 15px;
+}
+
+.SearchIcon:hover {
+  cursor: default;
+  color: #d4e09b; /* Soft Buttercream  */
+}

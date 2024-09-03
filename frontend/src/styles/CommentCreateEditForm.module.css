@@ -1,0 +1,20 @@
+.Form {
+  border: none;
+  border-bottom: 2px #F19C79 solid; /* Peachy Coral */
+}
+
+.Button {
+  border: none;
+  background-color: #A44A3F; /* Chestnut */
+  color: #F6F4D2; /* Soft Buttercream */
+  border-radius: 100px;
+  padding: 4px 10px;
+  min-width: 75px;
+  margin: 5px;
+}
+
+.Button:hover {
+  cursor: pointer;
+  background-color: #F6F4D2; /* Soft Buttercream */
+  color: #A44A3F; /* Chestnut */
+}

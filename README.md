@@ -1,131 +1,225 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# A Cup of Fiction
+![A Cup Of Fiction](../pp5-backend/frontend/src/assets/responsive.PNG)
+**A Cup of Fiction** is a social media platform tailored specifically for book clubs. It allows users to share their thoughts on books, connect with other readers, and participate in lively discussions.
 
-Welcome Andreas Almen,
+## Table of Contents
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [API Endpoints](#api-endpoints)
+7. [Frontend Structure](#frontend-structure)
+8. [Backend Structure](#backend-structure)
+9. [Color Scheme](#color-scheme)
+10. [Testing](#testing)
+11. [Credit](#credit)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Project Overview
 
-## Gitpod Reminders
+A Cup of Fiction is designed to bring book enthusiasts together in a digital space. Whether you're discussing the latest bestseller or diving deep into a classic novel, this platform provides the tools to foster engaging conversations and meaningful connections.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### Purpose
 
-`python3 -m http.server`
+The application serves as a hub for book clubs to interact, share reviews, post updates, and connect with like-minded individuals.
 
-A blue button should appear to click: _Make Public_,
+### Target Audience
 
-Another blue button should appear to click: _Open Browser_.
+This platform is ideal for book club members, avid readers, and literary communities looking for a dedicated space to share their love of books.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## User Stories
 
-A blue button should appear to click: _Make Public_,
+| Category  | As        | I can                          | so that I can                                                        | UI Components                                |
+| --------- | --------- | ------------------------------ | -------------------------------------------------------------------- | -------------------------------------------- |
+| auth      | a user    | sign up for an account         | have a personalized profile with a profile picture                   | SignUpForm<br>ProfilePage<br>ProfileEditForm |
+| auth      | a user    | sign up for an account         | make, like and comment on other users content                        | Post<br>PostPage<br>Comment                  |
+| auth      | a user    | sign up for an account         | follow and unfollow other users                                      | Profile<br>ProfilePage                       |
+| posts     | a visitor | view a list of posts           | browse the newest content                                            | PostsPage                                    |
+| posts     | a visitor | view a specific post           | see likes and read comments                                          | Post<br>PostPaget                            |
+| posts     | a visitor | search a list of posts         | find posts by specific users or titles                               | PostsPage                                    |
+| posts     | a visitor | scroll through a list of posts | browse more comfortably                                              | InfiniteScrollComponent                      |
+| posts     | a user    | edit/delete my own posts       | edit or hide unwanted mistakes                                       | PostEditForm<br>MoreDropdownMenu             |
+| posts     | a user    | make posts                     | share pictures with others                                           | PostCreateForm                               |
+| posts     | a user    | view posts that I liked        | go back to all my liked posts                                        | PostsPage                                    |
+| posts     | a user    | view posts from followed users | keep up with users content that I enjoy                              | PostsPage                                    |
+| likes     | a user    | like posts                     | show my interest in users content                                    | Post like icon                               |
+| likes     | a user    | unlike posts                   | show my loss of interest in users content                            | Post (un)like icon                           |
+| comments  | a user    | post a comment                 | share thoughts on others posts                                       | PostPage<br>CommentCreateForm                |
+| comments  | a user    | edit/delete my own comments    | edit or hide my comments                                             | PostPage<br>Comment<br>MoreDropdownMenu      |
+| profiles  | a user    | view profiles                  | see users posts + followers and following count                      | ProfilePage<br>Post                          |
+| profiles  | a user    | edit my profile                | update my information                                                | ProfileEditForm                              |
+| followers | a user    | follow profiles                | show my interest in users content                                    | Profile follow button                        |
+| followers | a user    | unfollow profiles              | show my loss of interest in users content and remove it from my feed | Profile (un)follow button                    |
 
-Another blue button should appear to click: _Open Browser_.
+## Features
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- **User Authentication**: Secure login and registration system.
+- **User Profiles**: Customize your profile and see others' reading habits and posts.
+- **Posts and Comments**: Share your thoughts on books and interact with other users.
+- **Follow System**: Follow other readers to stay updated on their posts.
+- **Search Functionality**: Easily find books, users, and discussions.
+- **Responsive Design**: Seamlessly browse on any device.
 
-To log into the Heroku toolbelt CLI:
+## Tech Stack
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Frontend
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+- **React**: JavaScript library for building user interfaces.
+- **React Router**: For routing and navigation.
+- **Axios**: For making HTTP requests to the backend.
+- **CSS Modules**: For styling components with scoped CSS.
 
-### Connecting your Mongo database
+### Backend
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+- **Django**: High-level Python web framework.
+- **Django REST Framework**: Toolkit for building Web APIs.
+- **SQLite**: Lightweight database for development.
+- **Gunicorn**: WSGI HTTP server for UNIX.
 
-------
+## Installation
 
-## Release History
+### Prerequisites
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- Node.js and npm installed for frontend.
+- Python 3.x installed for backend.
+- Virtualenv for managing Python packages.
 
-**June 18, 2024,** Add Mongo back into template
+### Backend Setup
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+1. **Clone the repository:**
 
-**May 28 2024:** Fix Mongo and Links installs
+   ```bash
+   git clone https://github.com/yourusername/pp5-backend-main.git
+   cd pp5-backend-main
+   ```
 
-**April 26 2024:** Update node version to 16
+2. **Create a virtual environment and install dependencies:**
 
-**September 20 2023:** Update Python version to 3.9.17.
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+3. **Run the development server:**
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+   ```bash
+   python manage.py runserver
+   ```
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Frontend Setup
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+1. **Clone the repository:**
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+   ```bash
+   git clone https://github.com/yourusername/pp5-frontend-main.git
+   cd pp5-frontend-main
+   ```
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+2. **Install dependencies:**
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+   ```bash
+   npm install
+   ```
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+3. **Start the frontend development server:**
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+   ```bash
+   npm start
+   ```
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Local Development
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Deployed using Heroku:
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+1. Log in/sign up to Heroku.
+2. Go to your Heroku App and click on "Deploy".
+3. At the section "Deployment method", click "GitHub" and connect your account with Heroku.
+4. When you're connected, search for the project you wanna connect the app to and click on it.
+5. Click "Deploy Branch".
+6. Your app will now be deployed to GitHub and when it's done you can click "Open App".
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Usage
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- Access the application at `http://localhost:8000` for the backend and `http://localhost:3000` for the frontend.
+- Register an account, create your profile, and start posting about your favorite books!
 
-------
+## API Endpoints
 
-## FAQ about the uptime script
+Here’s a brief overview of the key API endpoints provided by the backend:
 
-**Why have you added this script?**
+- **`/api/auth/`**: Endpoints for user authentication (login, register, etc.).
+- **`/api/posts/`**: CRUD operations for posts.
+- **`/api/comments/`**: CRUD operations for comments.
+- **`/api/profiles/`**: Endpoints for managing user profiles.
+- **`/api/follow/`**: Follow and unfollow users.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Frontend Structure
 
-**How will this affect me?**
+- **`/src/components`**: Reusable components like buttons, forms, and cards.
+- **`/src/pages`**: Pages corresponding to different routes (e.g., `Home`, `Profile`, `PostPage`).
+- **`/src/contexts`**: Context providers for managing global state (e.g., `AuthContext`).
+- **`/src/styles`**: CSS modules for styling the application.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Backend Structure
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- **`/cup`**: Main Django app handling authentication, API routing, and settings.
+- **`/posts`**: Django app managing post creation, editing, and deletion.
+- **`/comments`**: Django app managing comments on posts.
+- **`/profiles`**: Django app handling user profiles and follow system.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## Color Scheme
 
-**So….?**
+### Color Palette
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+For this project, I have selected a cozy and inviting color palette to align with the brand identity, which is focused on book clubs and creating a comfortable, easy-on-the-eyes experience.
 
-**Can I opt out?**
+#### Primary Colors:
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Color Scheme](../pp5-backend/frontend/src/assets/color_scheme_with_hex.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- **Light Moss Green (#CBDFBD):** A soft, soothing green that serves as the main background color, providing a calming atmosphere.
+- **Soft Buttercream (#F6F4D2):** A gentle off-white used for borders, adding a warm contrast without being too harsh.
+- **Chestnut (#A44A3F):** A rich, warm color used for primary text, ensuring excellent readability against the lighter backgrounds.
+- **Light Sage (#D4E09B):** A light, creamy color used for secondary text, keeping the design soft and easy to read.
+- **Peachy Coral (#F19C79):** A vibrant orange used sparingly for accent elements like buttons and links, drawing attention without overwhelming the user.
 
-**Anything more?**
+### Analogous Colors
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+In color theory, an **analogous** color scheme involves colors that are next to each other on the color wheel. These colors usually match well and create serene and comfortable designs. The analogous scheme used here incorporates shades of green, yellow, and orange to achieve a harmonious and welcoming look that resonates with the warmth and community spirit of book clubs.
 
----
+## Testing
 
-Happy coding!
+### Automated
+
+I tried to set up aoutomation but i kept getting ReferenceError: TextEncoder is not defined
+and it whas never explained in the lessions on how to handle difrent type of set up errors 
+
+### Manual
+
+Testing was ongoing throughout the development process. Chrome Dev Tools was used during the building to test the responsiveness and interactions. The deployed website is tested on Chrome, Opera GX, and Samsung S22 Ultra.
+The site looks and works as intended.
+
+- **Navbar/Links/Buttons:** Each link on the Navbar and pages works without any problem, same with the buttons. Rendering and navigation work as intended and expected.
+
+- **Auth/Access:** Both the sign-in and sign-up forms work without problems. The request and redirecting send you to the correct pages.
+
+Only users that have an account and are logged in have access to adding posts, and they can only edit/delete the posts and comments they've posted. They only have access to edit their own profile, username, and password.
+Only logged-in users can post/edit/delete comments, like others' posts (not their own), and follow/unfollow other profiles.
+
+## Credits
+
+### Code
+
+- Followed along the walkthrough projects "Moments" and "Django REST Framework" by Code Institute while making this project.
+
+### Content
+
+- All user accounts that exist at this moment where created by me.
+
+### Media
+
+- All images posted and profile pictures used by the users are AI generated from [Leonardo AI](https://app.leonardo.ai) and [Aitubo](https://aitubo.ai/).
+- Favicon is a custom logo made in [Leonardo AI](https://app.leonardo.ai).
+- I borrowed the icons and burger menu from the walkthrough "Moments", as I liked the look of them.
