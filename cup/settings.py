@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-import re
 
 if os.path.exists('env.py'):
     import env
@@ -27,8 +26,7 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    os.environ.get('DEV_BACKEND_URL'),
-    os.environ.get('PROD_BACKEND_URL'),
+    'localhost',
 ]
 
 # Force https in production
@@ -41,16 +39,9 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # CORS settings
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        os.environ.get('CLIENT_ORIGIN_DEV', ''),
-    ]
-
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get('CLIENT_ORIGIN')
+]
 
 # Cloudinary storage
 CLOUDINARY_STORAGE = {
