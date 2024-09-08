@@ -340,3 +340,8 @@ All manual tests were successfully completed. The application meets the expected
 - All images posted and profile pictures used by the users are AI generated from [Leonardo AI](https://app.leonardo.ai) and [Aitubo](https://aitubo.ai/).
 - Favicon is a custom logo made in [Leonardo AI](https://app.leonardo.ai).
 - I borrowed the icons and burger menu from the walkthrough "Moments", as I liked the look of them.
+
+
+### Live website
+
+[Live on Heroku](https://cup-backend-3976f813200f.herokuapp.com/)
