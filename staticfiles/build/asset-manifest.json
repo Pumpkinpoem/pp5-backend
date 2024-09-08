@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.548b62d4.css",
+    "main.js": "/static/js/main.bfcbf6df.js",
+    "static/js/453.8328bbec.chunk.js": "/static/js/453.8328bbec.chunk.js",
+    "static/media/acupoffictionlogo.png": "/static/media/acupoffictionlogo.eafa08e1025faad5eee6.png",
+    "static/media/Portrait_Perfect.jpg": "/static/media/Portrait_Perfect.b8883ba45086882d1200.jpg",
+    "static/media/girl_reading_book.jpg": "/static/media/girl_reading_book.bfddb2f45b1e565a0d96.jpg",
+    "static/media/no_results.png": "/static/media/no_results.7a117a9f6011dbcdb4cf.png",
+    "static/media/upload.png": "/static/media/upload.c3ed713145e479348d41.png",
+    "index.html": "/index.html",
+    "main.548b62d4.css.map": "/static/css/main.548b62d4.css.map",
+    "main.bfcbf6df.js.map": "/static/js/main.bfcbf6df.js.map",
+    "453.8328bbec.chunk.js.map": "/static/js/453.8328bbec.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.548b62d4.css",
+    "static/js/main.bfcbf6df.js"
+  ]
+}
