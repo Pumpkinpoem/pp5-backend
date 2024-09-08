@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from datetime import timedelta
 
 if os.path.exists('env.py'):
     import env
@@ -65,13 +66,26 @@ if 'DEV' not in os.environ:
     ]
 
 REST_USE_JWT = True
-JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SECURE = True
 JWT_AUTH_SAMESITE = 'None'
+JWT_AUTH_COOKIE_PATH = '/'
+JWT_AUTH_REFRESH_COOKIE_PATH = '/'
+
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'cup.serializers.CurrentUserSerializer'
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Adjust as needed
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,  # Ensures refresh token is rotated on each use
+    'BLACKLIST_AFTER_ROTATION': True,  # Blacklist old refresh tokens after rotation
+    'ALGORITHM': 'HS256',  # Standard algorithm for JWT signing
+    'SIGNING_KEY': SECRET_KEY,  # This should match your project's secret key
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
 # Application definition
