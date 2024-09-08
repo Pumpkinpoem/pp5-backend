@@ -1,5 +1,5 @@
 # A Cup of Fiction
-![A Cup Of Fiction](../pp5-backend/frontend/src/assets/responsive.PNG)
+![A Cup Of Fiction](/frontend/src/assets/responsive.PNG)
 **A Cup of Fiction** is a social media platform tailored specifically for book clubs. It allows users to share their thoughts on books, connect with other readers, and participate in lively discussions.
 
 ## Table of Contents
@@ -15,6 +15,7 @@
 9. [Color Scheme](#color-scheme)
 10. [Testing](#testing)
 11. [Credit](#credit)
+
 
 ## Project Overview
 
