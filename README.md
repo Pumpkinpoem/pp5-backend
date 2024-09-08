@@ -196,17 +196,117 @@ In color theory, an **analogous** color scheme involves colors that are next to 
 I tried to set up aoutomation but i kept getting ReferenceError: TextEncoder is not defined
 and it whas never explained in the lessions on how to handle difrent type of set up errors 
 
-### Manual
+## Manual Testing Documentation
 
-Testing was ongoing throughout the development process. Chrome Dev Tools was used during the building to test the responsiveness and interactions. The deployed website is tested on Chrome, Opera GX, and Samsung S22 Ultra.
-The site looks and works as intended.
+### **Front-End (React)**
 
-- **Navbar/Links/Buttons:** Each link on the Navbar and pages works without any problem, same with the buttons. Rendering and navigation work as intended and expected.
+#### **1. Navigation Testing**
+- **Objective**: Ensure all navigation links work as expected and lead to the correct pages.
+- **Tested Pages**:
+  - Home Page
+  - Posts Page
+  - Profile Page
+  - Login/Signup
+- **Procedure**: 
+  - Click each navigation link on the navbar and footer.
+  - Confirm that the page loads correctly and the URL updates.
+  - Verify that the content matches the page you are navigating to.
 
-- **Auth/Access:** Both the sign-in and sign-up forms work without problems. The request and redirecting send you to the correct pages.
+- **Result**: All links redirect to the correct pages and load the necessary components.
 
-Only users that have an account and are logged in have access to adding posts, and they can only edit/delete the posts and comments they've posted. They only have access to edit their own profile, username, and password.
-Only logged-in users can post/edit/delete comments, like others' posts (not their own), and follow/unfollow other profiles.
+#### **2. Form Submission Testing**
+- **Objective**: Test the forms for creating, editing, and deleting posts, comments, and profiles.
+- **Tested Forms**:
+  - Create Post Form
+  - Edit Post Form
+  - Comment Form
+  - Profile Edit Form
+- **Procedure**: 
+  - Fill out the forms with valid and invalid data.
+  - Submit the forms and observe the behavior.
+  - Check for proper error handling (e.g., missing required fields).
+  - Ensure that the data updates correctly after submission.
+
+- **Result**: Forms submit data correctly with validation errors for invalid inputs.
+
+#### **3. Authentication Testing**
+- **Objective**: Test the authentication system to ensure login, signup, and session management are working.
+- **Procedure**:
+  - Sign up for a new account.
+  - Log in using the new account credentials.
+  - Verify session persistence by refreshing the page.
+  - Log out and confirm that protected pages are no longer accessible.
+
+- **Result**: Authentication works as expected; users can log in, sign up, and log out.
+
+#### **4. Responsive Design Testing**
+- **Objective**: Ensure the application is fully responsive and works across different screen sizes (mobile, tablet, desktop).
+- **Procedure**:
+  - Test the app on various devices (e.g., phone, tablet, desktop) or use Chrome Dev Tools for different screen sizes.
+  - Verify that the layout adjusts accordingly, with no overlapping elements or broken designs.
+  
+- **Result**: The layout is responsive and adapts to different screen sizes without issues.
+
+---
+
+### **Back-End (Django)**
+
+#### **1. CRUD Functionality Testing**
+- **Objective**: Ensure the CRUD operations (Create, Read, Update, Delete) work for posts, comments, likes, and profiles.
+- **Procedure**:
+  - **POST**: Create new entries (posts, comments, likes) via the API.
+  - **GET**: Retrieve lists and individual entries using the appropriate endpoints.
+  - **PUT**: Update existing entries and verify the changes.
+  - **DELETE**: Delete entries and ensure they are removed from the database.
+  
+- **Result**: All CRUD operations work as expected; data is correctly created, retrieved, updated, and deleted.
+
+#### **2. API Authentication Testing**
+- **Objective**: Ensure only authenticated users can perform protected actions (creating posts, comments, likes, etc.).
+- **Procedure**:
+  - Attempt to access protected API routes without authentication.
+  - Log in and access the protected routes again.
+  - Verify that access control is enforced (e.g., unauthorized users cannot delete posts they don’t own).
+
+- **Result**: Authentication is properly enforced, preventing unauthorized actions.
+
+#### **3. Error Handling Testing**
+- **Objective**: Test for proper error handling for invalid data and incorrect API usage.
+- **Procedure**:
+  - Submit invalid data (e.g., missing fields, wrong formats) to API endpoints.
+  - Verify that the API returns appropriate error messages and status codes.
+  
+- **Result**: The API handles errors gracefully with clear error messages and proper status codes.
+
+#### **4. Database Integrity Testing**
+- **Objective**: Ensure data consistency and integrity in the database.
+- **Procedure**:
+  - Create multiple entries in the database and verify data relationships (e.g., posts tied to users).
+  - Test deletion of related data and check for cascading effects (e.g., deleting a user also deletes their posts, if applicable).
+  
+- **Result**: Data integrity is maintained, and relationships between models are handled correctly.
+
+---
+
+### **Browser and Device Testing**
+
+#### **Browsers Tested**:
+- Chrome (Desktop and Mobile)
+- Opera GX
+- Samsung S22 Ultra (Mobile)
+
+#### **Devices Tested**:
+- Desktop
+- Mobile (Samsung S22 Ultra)
+
+#### **Results**: 
+- The site works as expected across different browsers and devices, with consistent performance and responsive design.
+
+---
+
+### Conclusion
+All manual tests were successfully completed. The application meets the expected functionality for both front-end and back-end components, including navigation, form handling, authentication, and API operations. Minor adjustments may be required for advanced validation and error handling, but core features work smoothly.
+
 
 ## Credits
 

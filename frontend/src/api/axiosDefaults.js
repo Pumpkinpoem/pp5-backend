@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// Set the base URL directly to the production server
-// axios.defaults.baseURL = 'https://cup-backend-3976f813200f.herokuapp.com/'; // Prod (Heroku)
+
+axios.defaults.baseURL = '/api';
 
 axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 axios.defaults.withCredentials = true;
