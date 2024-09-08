@@ -20,6 +20,13 @@
 
 A Cup of Fiction is designed to bring book enthusiasts together in a digital space. Whether you're discussing the latest bestseller or diving deep into a classic novel, this platform provides the tools to foster engaging conversations and meaningful connections.
 
+## Wireframes
+
+[WireFrames](/wireframe_template.md)
+
+documentation from the wireframes
+
+
 ### Purpose
 
 The application serves as a hub for book clubs to interact, share reviews, post updates, and connect with like-minded individuals.
@@ -27,6 +34,12 @@ The application serves as a hub for book clubs to interact, share reviews, post 
 ### Target Audience
 
 This platform is ideal for book club members, avid readers, and literary communities looking for a dedicated space to share their love of books.
+
+
+## Moscow documentation
+
+[Moscow](/readme_images/moscow.PNG)
+
 
 ## User Stories
 
@@ -191,10 +204,13 @@ In color theory, an **analogous** color scheme involves colors that are next to 
 
 ## Testing
 
+### Known Bugs
+
+[Documented bugs](/BUG_REPORT.md)
+
 ### Automated
 
-I tried to set up aoutomation but i kept getting ReferenceError: TextEncoder is not defined
-and it whas never explained in the lessions on how to handle difrent type of set up errors 
+I tried to set up automation but I kept getting `ReferenceError: TextEncoder is not defined`. This issue was not explained in the lessons, and I'm still working on resolving it.
 
 ## Manual Testing Documentation
 
