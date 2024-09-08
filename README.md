@@ -191,7 +191,7 @@ For this project, I have selected a cozy and inviting color palette to align wit
 
 #### Primary Colors:
 
-![Color Scheme](../pp5-backend/frontend/src/assets/color_scheme_with_hex.png)
+![Color Scheme](/frontend/src/assets/color_scheme_with_hex.png)
 
 - **Light Moss Green (#CBDFBD):** A soft, soothing green that serves as the main background color, providing a calming atmosphere.
 - **Soft Buttercream (#F6F4D2):** A gentle off-white used for borders, adding a warm contrast without being too harsh.
